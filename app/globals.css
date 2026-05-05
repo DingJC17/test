@@ -1,0 +1,75 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-mist text-ink font-sans antialiased;
+  background-image:
+    radial-gradient(circle at top left, rgba(15, 156, 143, 0.14), transparent 30%),
+    radial-gradient(circle at top right, rgba(92, 121, 255, 0.12), transparent 22%),
+    linear-gradient(180deg, #f8fbfb 0%, #edf6f6 100%);
+}
+
+::selection {
+  background: rgba(15, 156, 143, 0.2);
+}
+
+main {
+  min-height: 100vh;
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-shell {
+    @apply py-16 sm:py-20;
+  }
+
+  .headline {
+    @apply font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl;
+  }
+
+  .body-muted {
+    @apply text-base leading-7 text-slate-600;
+  }
+
+  .panel {
+    @apply rounded-[28px] border border-white/70 bg-white/85 shadow-soft backdrop-blur;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accentDeep focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-ink/10 bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+
+  .input-base {
+    @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-ink shadow-sm outline-none transition placeholder:text-slate-400 focus:border-accent focus:ring-2 focus:ring-accent/15;
+  }
+
+  .textarea-base {
+    @apply input-base min-h-[140px] resize-y;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border border-accent/15 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-accentDeep;
+  }
+}
