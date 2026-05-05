@@ -1,19 +1,19 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight, BarChart3, FileSpreadsheet, FileText } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 import { caseStudies } from '@/lib/site';
 
-const icons: Record<string, React.ComponentType<{ className?: string }>> = {
-  invoice: FileSpreadsheet,
-  summary: FileText,
-  review: BarChart3,
+const caseImages: Record<string, string> = {
+  invoice: '/cases/case1.png',
+  summary: '/cases/case2.png',
+  review: '/cases/case3.png',
 };
 
 export function CaseStudySection() {
   const [activeId, setActiveId] = useState(caseStudies[0].id);
   const active = caseStudies.find((c) => c.id === activeId) || caseStudies[0];
-  const Icon = icons[active.id] || FileText;
 
   return (
     <section className="section-shell">
@@ -47,16 +47,14 @@ export function CaseStudySection() {
           <article className="panel space-y-8 p-6 sm:p-8">
             {/* Image / visual area */}
             <div className="overflow-hidden rounded-[24px] border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100">
-              <div className="flex flex-col items-center justify-center px-6 py-16 text-center">
-                <div className="flex h-20 w-20 items-center justify-center rounded-[24px] bg-accent/10">
-                  <Icon className="h-10 w-10 text-accent" />
-                </div>
-                <p className="mt-6 text-sm font-semibold text-slate-500 uppercase tracking-[0.14em]">{active.industry}</p>
-                <p className="mt-2 max-w-lg text-lg font-semibold text-ink">{active.title}</p>
-                <p className="mt-3 max-w-xl text-sm leading-7 text-slate-500">
-                  此处可放置实际案例截图、前后对比图或流程示意图，进一步直观展示自动化效果。
-                </p>
-              </div>
+              <Image
+                src={caseImages[active.id]}
+                alt={active.title}
+                width={1200}
+                height={800}
+                className="w-full h-auto"
+                priority
+              />
             </div>
 
             {/* Case detail sections */}
