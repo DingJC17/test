@@ -1,7 +1,8 @@
 ﻿'use client';
 
 import { useState } from 'react';
-import { Copy, Github, QrCode } from 'lucide-react';
+import Image from 'next/image';
+import { Copy, Github } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 
 export function WechatCTA({
@@ -45,9 +46,7 @@ export function WechatCTA({
         </div>
       </div>
       <div className="rounded-[28px] border border-white/10 bg-white/8 p-6 text-center backdrop-blur">
-        <div className="mx-auto flex h-44 w-44 items-center justify-center rounded-[24px] border border-dashed border-white/25 bg-white/5">
-          <QrCode className="h-20 w-20 text-white/75" />
-        </div>
+        <Image src="/images/wechat-qr.png" alt="微信二维码" width={176} height={176} className="mx-auto rounded-[20px]" />
         <p className="mt-5 text-sm font-semibold">微信号：{siteConfig.wechat}</p>
         <p className="mt-2 text-xs leading-6 text-white/65">添加时请备注：AI 工具定制</p>
       </div>
